@@ -65,6 +65,9 @@ prediction_data = df
 with open("modelo_arvore.pkl", "rb")as arquivo:
   model = pickle.load(arquivo)
 
+# Adicionar uma coluna chamada "Unnamed: 0" com índices do DataFrame
+df.insert(0, 'Unnamed: 0', df.index)
+
 # Aplicar as mesmas transformações aos dados de previsão
 prediction_data.drop(["Director", "Star1", "Star2", "Star3", "Star4", "Overview", "Series_Title"], axis=1, inplace=True)
 
